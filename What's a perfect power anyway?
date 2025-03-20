@@ -1,0 +1,12 @@
+def isPP(n):
+  m = 2
+  max_m = n // 2
+  while m <= max_m:
+    k = 2
+    while m ** k <= n:
+      if n == m ** k:
+        return [m, k]
+      else: 
+        k += 1
+    m += 1
+  return None
