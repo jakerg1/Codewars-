@@ -1,0 +1,18 @@
+from collections import deque
+def tree_by_levels(node):
+  if node == None:
+    return []
+
+  queue = deque([node])   # create queue starting with root node
+  result = []             # empty list for output
+
+  while queue:
+    current = queue.popleft()       # Dequeue , removes element from the left side (oldest element)
+    result.append(current.value)
+
+    if current.left:                # if current node has left child add it to the right end 
+      queue.append(current.left)
+    if current.right:               # if current node has right child also add it to the right end
+      queue.append(current.right)
+
+  return result
